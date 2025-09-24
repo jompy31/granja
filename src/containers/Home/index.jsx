@@ -11,7 +11,7 @@ const Home = () => {
   const [animals, setAnimals] = useState([]);
   const [users, setUsers] = useState([]);
   const [editingAnimal, setEditingAnimal] = useState(false);
-  const [selectedAnimal, setSelectedAnimal] = useState(null);
+  const selectedAnimal = null;
   const [editingUser, setEditingUser] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [isAddAnimalModalOpen, setIsAddAnimalModalOpen] = useState(false);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import "../../Styles/FormAddAnimal.css";
 import { createAnimal } from "../../services/api";
 import vacaImg from "../../assets/vaca.jpg";
@@ -9,14 +9,14 @@ import conejImg from "../../assets/conejo.jpg"
 
 function FormularioAgregarAnimal({ setAnimals, isOpen, onClose }) {
   const tiposAnimales = ["Vaca", "Cerdo", "Gallina", "Oveja", "Conejo"];
-  const ubicaciones = ["Bloque A", "Bloque B", "Bloque C", "Bloque D", "Bloque E", "Bloque F", "Bloque G", "Bloque H", "Bloque I", "Bloque J", "Bloque K", , "Corral A", "Gallinero", "Pollera"];
-  const imagenes = {
+  const ubicaciones = ["Bloque A", "Bloque B", "Bloque C", "Bloque D", "Bloque E", "Bloque F", "Bloque G", "Bloque H", "Bloque I", "Bloque J", "Bloque K", "Corral A", "Gallinero", "Pollera"];
+  const imagenes = useMemo(() => ({
     Vaca: vacaImg,
     Cerdo: cerdoImg,
     Gallina: gallinaImg,
     Oveja: ovejaImg,
     Conejo: conejImg,
-  };
+  }), []);
 
   const [tipos, setTipos] = useState("");
   const [raza, setRaza] = useState("");
@@ -62,12 +62,12 @@ function FormularioAgregarAnimal({ setAnimals, isOpen, onClose }) {
 
   // Automatically set image based on animal type
   useEffect(() => {
-    if (tipos && imagenes[tipos]) {
-      setImagenSeleccionada(imagenes[tipos]);
-    } else {
-      setImagenSeleccionada("");
-    }
-  }, [tipos]);
+  if (tipos && imagenes[tipos]) {
+    setImagenSeleccionada(imagenes[tipos]);
+  } else {
+    setImagenSeleccionada("");
+  }
+}, [tipos, imagenes]);
 
   // Validate form inputs
   const validateForm = () => {

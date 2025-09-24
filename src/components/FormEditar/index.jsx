@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import "../../Styles/FormEditar.css";
 import { updateAnimal } from "../../services/api";
 import vacaImg from "../../assets/vaca.jpg";
@@ -8,13 +8,13 @@ import ovejaImg from "../../assets/oveja.jpg";
 import conejImg from "../../assets/conejo.jpg"
 
 function FormEditar({ animal, animals, setAnimals, onClose }) {
-  const imagenesMap = {
+  const imagenesMap = useMemo(() => ({
     Vaca: vacaImg,
     Cerdo: cerdoImg,
     Gallina: gallinaImg,
     Oveja: ovejaImg,
     Conejo: conejImg,
-  };
+  }), []);
 
   const [type, setType] = useState(animal.type || "");
   const [breed, setBreed] = useState(animal.characteristics?.breed || "");
@@ -46,9 +46,9 @@ function FormEditar({ animal, animals, setAnimals, onClose }) {
   const [errors, setErrors] = useState({});
 
   // Update image when type changes
-  useEffect(() => {
+ useEffect(() => {
     setImage(imagenesMap[type] || "");
-  }, [type]);
+  }, [type, imagenesMap]);
 
   // Inicializar estados para agregar a tratamientos existentes
   useEffect(() => {
