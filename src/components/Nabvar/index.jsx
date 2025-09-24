@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logoImg from "../../assets/logo granja.png"; // Verificar ruta
+import logoImg from "../../assets/logo_granja.png"; // Verificar ruta
 import "../../Styles/Navbar.css";
 
 const Navbar = () => {

@@ -3,8 +3,73 @@
   min-height: 100vh;
   padding: 40px 20px;
 }
+
 .home-container h1,
 .home-container h2,
 .home-container p {
   color: #f6f2f2;
+}
+
+.add-animal-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #4a90e2;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.add-animal-btn:hover {
+  background: #023e8a;
+}
+
+.dashboard-table {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.dashboard-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dashboard-table th,
+.dashboard-table td {
+  padding: 10px;
+  text-align: left;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dashboard-table th {
+  background: #4a90e2;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
 }

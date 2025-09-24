@@ -1,19 +1,19 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "javier",
-      "password": "pass123"  
+      "password": "pass123"
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "naomy",
       "password": "pass456"
     }
   ],
   "animals": [
     {
-      "id": 1,
+      "id": "1",
       "type": "Vaca",
       "characteristics": {
         "breed": "Holstein",
@@ -28,19 +28,42 @@
         "dailyLevel": "50 litros"
       },
       "weight": 600,
-      "vaccines": [
-        { "name": "Fiebre aftosa", "date": "2025-01-15" }
+      "treatments": [
+        {
+          "name": "Tratamiento 1",
+          "description": "Tratamiento preventivo para enfermedades comunes",
+          "vaccines": [
+            {
+              "name": "Fiebre aftosa",
+              "date": "2025-01-15",
+              "veterinarian": "Dr. Pérez"
+            }
+          ],
+          "diseases": [
+            {
+              "name": "Fiebre aftosa",
+              "date": "2025-01-15",
+              "description": "Infección viral detectada, tratada con vacunación"
+            }
+          ]
+        }
       ],
       "breeding": {
         "mated": true,
         "mateDate": "2025-03-10"
       },
-      "birthDate": "2023-05-20",
-      "numberOfBirths": 2,
+      "birth": [
+        {
+          "birthDate": "2023-05-20",
+          "qty": "2025",
+          "alive": "10",
+          "destete": "2023-05-20"
+        }
+      ],
       "offspringCount": 3
     },
     {
-      "id": 2,
+      "id": "2",
       "type": "Cerdo",
       "characteristics": {
         "breed": "Yorkshire",
@@ -55,8 +78,19 @@
         "dailyLevel": "20 litros"
       },
       "weight": 150,
-      "vaccines": [
-        { "name": "Peste porcina", "date": "2025-02-01" }
+      "treatments": [
+        {
+          "name": "Tratamiento 2",
+          "description": "Control sanitario inicial",
+          "vaccines": [
+            {
+              "name": "Peste porcina",
+              "date": "2025-02-01",
+              "veterinarian": "Dr. Gómez"
+            }
+          ],
+          "diseases": []
+        }
       ],
       "breeding": {
         "mated": false,
@@ -65,6 +99,144 @@
       "birthDate": "2024-02-10",
       "numberOfBirths": 1,
       "offspringCount": 8
+    },
+    {
+      "id": "1758726025477",
+      "type": "Gallina",
+      "image": "/static/media/gallina.9047ce434ea00f3b648a.jpg",
+      "characteristics": {
+        "breed": "raza",
+        "color": "color",
+        "location": "Establo A"
+      },
+      "feeding": {
+        "schedule": "8am-12md",
+        "amount": "2kg"
+      },
+      "hydration": {
+        "dailyLevel": "2litros"
+      },
+      "weight": 25,
+      "treatments": [
+        {
+          "name": "vacuna",
+          "description": "gallina",
+          "vaccines": [],
+          "diseases": []
+        },
+        {
+          "name": "tratamiento",
+          "description": "vacuna segunda",
+          "vaccines": [],
+          "diseases": []
+        }
+      ],
+      "breeding": {
+        "mated": false,
+        "mateDate": null
+      },
+      "birth": [
+        {
+          "birthDate": "2025-09-25",
+          "qty": "10",
+          "alive": "6",
+          "destete": "2025-09-25"
+        }
+      ],
+      "birthDate": "2025-09-11",
+      "numberOfBirths": 0,
+      "offspringCount": 0
+    },
+    {
+      "id": "1758727116493",
+      "type": "Vaca",
+      "image": "/static/media/vaca.793369107c7045df27b7.jpg",
+      "characteristics": {
+        "breed": "raza",
+        "color": "coloir",
+        "location": "Establo A"
+      },
+      "feeding": {
+        "schedule": "8am",
+        "amount": "100kg"
+      },
+      "hydration": {
+        "dailyLevel": "20litros"
+      },
+      "weight": 249,
+      "treatments": [
+        {
+          "name": "tratamiento",
+          "description": "descripcion",
+          "vaccines": [],
+          "diseases": []
+        }
+      ],
+      "breeding": {
+        "mated": false,
+        "mateDate": null
+      },
+      "birth": [],
+      "birthDate": "2025-09-25",
+      "numberOfBirths": 0,
+      "offspringCount": 0
+    },
+    {
+      "id": "1758728143981",
+      "type": "Oveja",
+      "image": "/static/media/oveja.53d0d322ec39de732472.jpg",
+      "characteristics": {
+        "breed": "Raza",
+        "color": "blanca",
+        "location": "Establo A"
+      },
+      "feeding": {
+        "schedule": "8am",
+        "amount": "5kg"
+      },
+      "hydration": {
+        "dailyLevel": "10litros"
+      },
+      "weight": 198,
+      "treatments": [
+        {
+          "id": "1758728111083",
+          "name": "Tratamiento",
+          "description": "descripcion",
+          "vaccines": [
+            {
+              "id": "1758728099688",
+              "name": "vacuna de tratamiento",
+              "date": "2025-09-24",
+              "veterinarian": "felipe"
+            }
+          ],
+          "diseases": [
+            {
+              "id": "1758728133315",
+              "name": "nueva enfermdad",
+              "date": "2025-09-25",
+              "description": "asd"
+            }
+          ]
+        }
+      ],
+      "breeding": {
+        "mated": true,
+        "mateDate": "2025-09-25"
+      },
+      "birth": [
+        {
+          "id": "1758728157997",
+          "birthDate": "2025-09-25",
+          "qty": "10",
+          "alive": "6",
+          "destete": "2025-09-25"
+        }
+      ],
+      "birthDate": "2025-09-03",
+      "numberOfBirths": 4,
+      "offspringCount": 10
     }
   ]
 }

@@ -1,11 +1,12 @@
 .ficha-card {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px) saturate(180%);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-  margin: 10px;
-  padding: 20px;
+  margin: 0.5rem auto;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -16,62 +17,67 @@
   box-shadow: 0 16px 50px rgba(0, 0, 0, 0.35);
 }
 
+.ficha-header {
+  text-align: center;
+}
+
 .ficha-header h2 {
-  font-size: 1.8rem;
+  font-size: clamp(1.5rem, 4vw, 1.8rem);
   background: linear-gradient(90deg, #00e6ff, #007bff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-align: center;
-  margin: 0;
+  margin: 0 0 0.5rem;
 }
 
 .ficha-image {
   width: 100%;
-  height: 200px;
+  height: auto;
+  aspect-ratio: 4/3;
   object-fit: cover;
   border-radius: 10px;
-  margin-top: 10px;
+  margin-top: 0.5rem;
 }
 
 .ficha-body {
-  margin-top: 15px;
-  font-size: 1rem;
+  margin-top: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   line-height: 1.5;
   color: #f6f2f2;
+  overflow-y: auto;
+  max-height: 300px;
 }
 
 .ficha-body p {
-  margin: 8px 0;
+  margin: 0.5rem 0;
 }
 
 .ficha-body ul {
   list-style: disc;
-  padding-left: 20px;
-  margin: 8px 0;
-  color: #f6f2f2; /* 🔹 fuerza color texto */
+  padding-left: 1.25rem;
+  margin: 0.5rem 0;
+  color: #f6f2f2;
 }
 
 .ficha-body ul li {
   background: rgba(255, 255, 255, 0.1);
-  padding: 6px 10px;
+  padding: 0.4rem 0.6rem;
   border-radius: 6px;
-  margin-bottom: 5px;
-  font-size: 0.95rem;
-  color: #fff; /* 🔹 fuerza color texto */
+  margin-bottom: 0.3rem;
+  font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+  color: #fff;
 }
 
-/* 🔥 Fix para que se vean inputs y textareas */
 .ficha-body input,
 .ficha-body textarea {
-  all: unset;              
+  all: unset;
   width: 100%;
-  padding: 6px 10px;
-  margin-top: 5px;
+  padding: 0.4rem 0.6rem;
+  margin-top: 0.3rem;
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 6px;
   background-color: rgba(0, 0, 0, 0.2);
   color: #fff !important;
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 2.5vw, 0.95rem);
   display: block;
 }
 
@@ -89,17 +95,22 @@
 
 .ficha-actions {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 15px;
+  margin-top: 1rem;
+  gap: 0.5rem;
 }
 
 .ficha-edit-btn,
 .ficha-delete-btn {
-  padding: 10px 20px;
+  flex: 1;
+  min-width: 100px;
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   transition: transform 0.2s ease, background-color 0.3s;
 }
 
@@ -121,4 +132,41 @@
 .ficha-delete-btn:hover {
   background-color: #a81c1c;
   transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .ficha-card {
+    max-width: 100%;
+  }
+
+  .ficha-image {
+    max-height: 150px;
+  }
+
+  .ficha-body {
+    max-height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ficha-card {
+    padding: 0.75rem;
+  }
+
+  .ficha-header h2 {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+  }
+
+  .ficha-body {
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+  }
+
+  .ficha-actions {
+    flex-direction: column;
+  }
+
+  .ficha-edit-btn,
+  .ficha-delete-btn {
+    width: 100%;
+  }
 }

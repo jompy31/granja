@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { fetchUsers } from "../../services/api";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -7,23 +8,27 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // Si el usuario ya está logueado, redirigirlo automáticamente
+  // Check if user is already logged in
   useEffect(() => {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     if (loggedInUser) navigate("/", { replace: true });
   }, [navigate]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    const user = storedUsers.find(
-      (u) => u.username === username && u.password === password
-    );
-    if (user) {
-      localStorage.setItem("loggedInUser", JSON.stringify(user));
-      navigate("/", { replace: true }); // ✅ Redirige a Home
-    } else {
-      setError("Credenciales incorrectas");
+    try {
+      const users = await fetchUsers();
+      const user = users.find(
+        (u) => u.username === username && u.password === password
+      );
+      if (user) {
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
+        navigate("/", { replace: true });
+      } else {
+        setError("Credenciales incorrectas");
+      }
+    } catch (error) {
+      setError("Error al conectar con el servidor. Inténtalo de nuevo.");
     }
   };
 
@@ -57,7 +62,6 @@ const Login = () => {
         >
           Iniciar Sesión
         </h2>
-
         <form
           onSubmit={handleSubmit}
           style={{ display: "flex", flexDirection: "column", gap: "15px" }}
